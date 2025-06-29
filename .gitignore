@@ -1,38 +1,40 @@
 # Byte-compiled / cache
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
 *.so
 
-# Virtual environment
+# Virtual environments
 env310/
 .venv/
 venv/
 
-# IDEs and editors
+# IDE/editor configs
 .vscode/
 .idea/
 
-# OS files
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Logs and output
+# Logs and outputs
 *.log
 *.out
 
-# Model and dataset artifacts
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Datasets
+data/
+*.csv
+
+# Model artifacts
 *.h5
 *.keras
 *.ckpt
+asl_model.tflite
+saved_model/
 
-# Jupyter Notebooks checkpoints
-.ipynb_checkpoints/
-
-# Local data
-*.csv
-data/
-
-# Optional: compiled C extensions
-*.pyd
-*.pyo
+# C extensions / debugging
 *.pdb

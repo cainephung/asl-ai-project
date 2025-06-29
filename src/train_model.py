@@ -1,5 +1,4 @@
 # src/train_model.py
-
 import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -7,6 +6,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
+from tensorflow.keras.layers import Input  
 
 # Step 1: Load data
 train_df = pd.read_csv("data/sign_mnist_train.csv")
@@ -29,8 +29,10 @@ y_train_cat = to_categorical(y_train, num_classes=25)
 y_test_cat = to_categorical(y_test, num_classes=25)
 
 # Step 5: Build model
+
 model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
+    Input(shape=(28, 28, 1)),
+    Conv2D(32, (3, 3), activation='relu'),
     MaxPooling2D(pool_size=(2, 2)),
 
     Conv2D(64, (3, 3), activation='relu'),
@@ -40,6 +42,7 @@ model = Sequential([
     Dense(128, activation='relu'),
     Dense(25, activation='softmax')
 ])
+
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
@@ -51,4 +54,5 @@ loss, acc = model.evaluate(X_test, y_test_cat)
 print(f"Test Accuracy: {acc:.4f}")
 
 # Step 8: Save model
-model.save("asl_model.h5")
+model.save("asl_model.keras")
+model.export("saved_model/")
