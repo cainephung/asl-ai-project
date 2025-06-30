@@ -1,40 +1,29 @@
-# Byte-compiled / cache
+# === Python Backend ===
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
 *.so
-
-# Virtual environments
 env310/
 .venv/
 venv/
-
-# IDE/editor configs
-.vscode/
-.idea/
-
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# Logs and outputs
+.ipynb_checkpoints/
 *.log
 *.out
-
-# Jupyter Notebook
-.ipynb_checkpoints/
-
-# Datasets
-data/
 *.csv
-
-# Model artifacts
+data/
 *.h5
 *.keras
 *.ckpt
-asl_model.tflite
+*.tflite
 saved_model/
 
-# C extensions / debugging
-*.pdb
+# === Node / React Frontend ===
+asl-ai-web/node_modules/
+asl-ai-web/dist/
+asl-ai-web/.env.local
+asl-ai-web/.vite/
+
+# === IDEs / OS ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
